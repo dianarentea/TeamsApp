@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<teams>
+    <team>
+        <name>CSM Corona Brasov</name>
+        <members>32</members>
+        <position>FS</position>
+        <image>corona</image>
+    </team>
+    <team>
+        <name>CSM Bucuresti</name>
+        <members>30</members>
+        <position>PF</position>
+        <image>bucuresti</image>
+    </team>
+    <team>
+        <name>Arcada Galati</name>
+        <members>25</members>
+        <position>SS</position>
+        <image>galati</image>
+    </team>
+    <team>
+        <name>Viitorul</name>
+        <members>29</members>
+        <position>SS</position>
+        <image>viitorul</image>
+    </team>
+
+</teams>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Layout Vertical pentru EditText-uri -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="66dp"
+        android:paddingBottom="56dp">
+
+        <EditText
+            android:id="@+id/teamName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Team name" />
+
+        <EditText
+            android:id="@+id/teamMembers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Number of team members"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/teamPosition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hierarchy position" />
+
+        <EditText
+            android:id="@+id/teamImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Image" />
+
+        <EditText
+            android:id="@+id/teamDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description" />
+    </LinearLayout>
+
+    <!-- Layout Orizontal pentru Butoane -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/returnButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Back" />
+
+        <Button
+            android:id="@+id/saveTeamButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_marginEnd="8dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
