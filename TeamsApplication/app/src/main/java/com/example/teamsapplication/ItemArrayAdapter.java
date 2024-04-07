@@ -2,7 +2,6 @@ package com.example.teamsapplication;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,23 +20,24 @@ public class ItemArrayAdapter extends ArrayAdapter {
     private int layout;
     private List<Team> teams;
 
+    JSONParser jsonParser;
+
 
     public ItemArrayAdapter(Context context, int layout, List<Team> teams) {
         super(context, layout, teams);
         this.context = context;
         this.layout = layout;
         this.teams = teams;
+        jsonParser = new JSONParser(context);
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        // inflate the layout to a java object
         LayoutInflater inflater = LayoutInflater.from(this.context);
         View layoutView = inflater.inflate(layout, parent, false);
 
-        // connect the layout object with components
         ImageView imageView = layoutView.findViewById(R.id.imageView);
         TextView mainTextView = layoutView.findViewById(R.id.textView);
         TextView subtitileTextView = layoutView.findViewById(R.id.textView2);
@@ -72,7 +72,7 @@ public class ItemArrayAdapter extends ArrayAdapter {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteTeam(team.name);
+                jsonParser.deleteTeamFromFile(team.name);
                 teams.remove(position);
                 notifyDataSetChanged();
             }
@@ -93,13 +93,4 @@ public class ItemArrayAdapter extends ArrayAdapter {
 
         return layoutView;
     }
-    private void deleteTeam(String teamName) {
-        SharedPreferences sharedPrefs = context.getSharedPreferences("Teams", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPrefs.edit();
-        editor.remove(teamName);
-        editor.apply();
-    }
-
-
-
 }

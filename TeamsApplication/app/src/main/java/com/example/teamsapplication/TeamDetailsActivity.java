@@ -28,7 +28,6 @@ public class TeamDetailsActivity extends AppCompatActivity {
         ImageView teamImageView = findViewById(R.id.teamImageView);
 
 
-
         nameTextView.setText(teamName);
         membersTextView.setText("Members: " + teamMembers);
         positionTextView.setText("Position: " + teamPosition);

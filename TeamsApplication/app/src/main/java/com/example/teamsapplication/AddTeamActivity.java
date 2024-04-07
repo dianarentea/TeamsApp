@@ -3,7 +3,6 @@ package com.example.teamsapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,12 +11,17 @@ import android.view.View;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 public class AddTeamActivity extends AppCompatActivity{
+
+    JSONParser jsonParser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_team);
+
+        jsonParser = new JSONParser(this);
 
         final EditText teamNameEditText = findViewById(R.id.teamName);
         final EditText teamMembersEditText = findViewById(R.id.teamMembers);
@@ -26,7 +30,6 @@ public class AddTeamActivity extends AppCompatActivity{
         final EditText teamDescriptionEditText = findViewById(R.id.teamDescription);
         Button saveTeamButton = findViewById(R.id.saveTeamButton);
 
-        // Verifică dacă activitatea este în modul de editare
         boolean isEditMode = getIntent().getBooleanExtra("editMode", false);
         if (isEditMode) {
             String teamName = getIntent().getStringExtra("teamName");
@@ -62,13 +65,7 @@ public class AddTeamActivity extends AppCompatActivity{
                     e.printStackTrace();
                 }
 
-                // Salvează echipa în SharedPreferences
-                SharedPreferences sharedPref = getSharedPreferences("Teams", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString(teamName, teamJson.toString());
-                editor.apply();
-
-                // Încheie activitatea
+                jsonParser.saveTeam(teamJson, isEditMode);
                 finish();
             }
         });
